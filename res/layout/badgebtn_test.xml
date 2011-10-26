@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dip">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:orientation="horizontal">
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn1"
+            android:text="This"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn2"
+            android:text="is"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn3"
+            android:text="a"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dip">
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn4"
+            android:text="really, really"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn5"
+            android:text="amazing"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+        
+        <com.jcxavier.widget.BadgeButton
+            android:id="@+id/btn6"
+            android:text="dashboard!"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>
