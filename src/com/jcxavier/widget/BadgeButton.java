@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 João Xavier <jcxavier@jcxavier.com>
+ * Copyright (C) 2011 João Xavier
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.jcxavier.widget;
+package pt.nb.acp.layout;
 
-import com.jcxavier.widget.R;
-
+import pt.nb.acp.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -40,7 +39,7 @@ import android.widget.TextView;
  * It is advised, for the button property layout_margin="5dip", that the image is around 25x25 px.
  * 
  * @version 1.0
- * @author João Xavier <jcxavier@jcxavier.com>
+ * @author João Xavier <joao.xavier@novabase.pt>
  */
 public class BadgeButton extends FrameLayout {
     /**
@@ -80,6 +79,19 @@ public class BadgeButton extends FrameLayout {
                     btnClickThrough.setText(attrs.getAttributeValue(i));
                 else // string id, contained in R.string
                     btnClickThrough.setText(context.getResources().getString(attrValue));
+            }
+            // search for android:textColor
+            else if (attrName.equals("textColor")) {
+                if (attrValue == 0) // color literal
+                    btnClickThrough.setTextColor(attrs.getAttributeIntValue(i, 0));
+                else // color id, contained in R.color
+                    btnClickThrough.setTextColor(context.getResources().getColor(attrValue));
+            }
+            // search for android:background
+            else if (attrName.equals("background")) {
+                // use drawable id
+                this.setBackgroundResource(0);
+                btnClickThrough.setBackgroundDrawable(context.getResources().getDrawable(attrValue));
             }
         }
     }
