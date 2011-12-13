@@ -1,4 +1,4 @@
-Represents a push-button widget for Android, similar to Button, allowing the user to show a badge with text in the a corner of the view (inspired on iOS).
+Represents a push-button widget for Android, similar to Button, allowing the user to show a badge with text in the corner of the view (inspired on iOS).
 Typical uses would include showing the number of notifications under a screen.
 The implementation uses badge_button.xml, which can be customized to choose the badge corner (default is top|right),
 the badge itself, between badge1 or badge2, as well as the text font, size, color and typeface.
