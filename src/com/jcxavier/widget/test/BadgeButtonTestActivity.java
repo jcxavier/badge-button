@@ -22,6 +22,9 @@ public class BadgeButtonTestActivity extends Activity {
         showButtonWithText(R.id.btn4, "++");
         showButtonWithText(R.id.btn5, "AM");
         showButtonWithText(R.id.btn6, "!!");
+        
+        ((BadgeButton) findViewById(R.id.btn2)).hideBadge();
+        ((BadgeButton) findViewById(R.id.btn3)).setBadgeDrawable(getResources().getDrawable(R.drawable.badge2));
     }
     
     private void showButtonWithText(int id, String text) {

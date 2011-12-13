@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 João Xavier
+ * Copyright (C) 2011 João Xavier <jcxavier@jcxavier.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,25 @@
  * limitations under the License.
  */
 
-package pt.nb.acp.layout;
+package com.jcxavier.widget;
 
-import pt.nb.acp.R;
+import com.jcxavier.widget.R;
+
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
  * Represents a push-button widget, similar to {@link Button},
- * allowing the user to show a badge with text in the a corner of the view.
+ * allowing the user to show a badge with text in the a corner of the view (inspired on iOS).
  * 
  * Typical uses would include showing the number of notifications under a screen.
  * 
@@ -36,10 +40,12 @@ import android.widget.TextView;
  * the badge corner (default is {@code top|right}), the badge itself, between
  * {@code badge1} or {@code badge2}, as well as the text font, size, color and typeface.
  * 
- * It is advised, for the button property layout_margin="5dip", that the image is around 25x25 px.
+ * It is advised, for the button property layout_margin="5dip", that the image is around 27x27
+ * or 28x28 px in mdpi.
  * 
- * @version 1.0
- * @author João Xavier <joao.xavier@novabase.pt>
+ * @version 1.1
+ * @author João Xavier <jcxavier@jcxavier.com>
+ * 
  */
 public class BadgeButton extends FrameLayout {
     /**
@@ -87,6 +93,18 @@ public class BadgeButton extends FrameLayout {
                 else // color id, contained in R.color
                     btnClickThrough.setTextColor(context.getResources().getColor(attrValue));
             }
+            // search for android:textSize
+            else if (attrName.equals("textSize")) { 
+                if (attrValue == 0) // dimension literal 
+                    btnClickThrough.setTextSize(extractFloat(attrs.getAttributeValue(i)));
+                else // dimension id, contained in R.dimen
+                    btnClickThrough.setTextSize(context.getResources().getDimension(attrValue));
+            }
+            // search for android:gravity
+            else if (attrName.equals("gravity")) {
+                // gravity value
+                btnClickThrough.setGravity(attrs.getAttributeIntValue(i, 0));
+            }
             // search for android:background
             else if (attrName.equals("background")) {
                 // use drawable id
@@ -96,6 +114,18 @@ public class BadgeButton extends FrameLayout {
         }
     }
     
+    /**
+     * Uses a regular expression to remove all alphabetic characters from the string, then,
+     * parses the string into a floating point number.
+     * 
+     * @param attributeValue the {@link String} object containing the number.
+     * @return the number extracted from the string.
+     */
+    private float extractFloat(String attributeValue) {
+        attributeValue = attributeValue.replaceAll("[a-zA-Z]", "");
+        return Float.parseFloat(attributeValue);
+    }
+
     /**
      * Attributes the {@link OnClickListener} to the button inside the {@link BadgeButton}.
      * 
@@ -113,6 +143,15 @@ public class BadgeButton extends FrameLayout {
      */
     public void setBadgeText(String badgeTextString) {
         badgeText.setText(badgeTextString);
+    }
+    
+    /**
+     * Sets the badge image.
+     * 
+     * @param badgeDrawable the Drawable corresponding to the badge image.
+     */
+    public void setBadgeDrawable(Drawable badgeDrawable) {
+        ((ImageView) findViewById(R.id.badgebtn_img)).setImageDrawable(badgeDrawable);
     }
  
     /**
