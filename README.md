@@ -9,17 +9,17 @@ The badge initializes hidden.
 The test activity BadgeButtonTestActivity exemplifies how to quickly set up a dashboard with buttons and buttons with badge.
 
 
+![Demo] (/demo.png)
 
-## ===== VERSION LOG =====
+
+## VERSION LOG
 ### v1.1
-====
 * supplying android:background to the button (as a drawable id)
 * supplying android:textColor to the button (with a literal or color id)
 * supplying android:textSize to the button (with a literal or dimen id)
 * supplying android:gravity to the button
 
 ### v1.0
-====
 * supplying android:text to the button
 * supplying OnClickListener to the button
 * getting/setting the badge text
