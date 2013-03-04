@@ -9,7 +9,7 @@ The badge initializes hidden.
 The test activity BadgeButtonTestActivity exemplifies how to quickly set up a dashboard with buttons and buttons with badge.
 
 
-![Demo] (https://github.com/jcxavier/BadgeButton/raw/master/demo.png)
+![Demo] (https://raw.github.com/jcxavier/badge-button/master/demo.png)
 
 
 ## Version log
